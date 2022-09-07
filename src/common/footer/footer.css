@@ -1,0 +1,16 @@
+.quick-links{
+    display: flex;
+    justify-content: space-between;
+    background-color: black;
+    margin-top: 3rem;
+    width: 100%;
+}
+
+.social-links{
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+    text-decoration: none;
+    margin: 5px;
+    color: white;
+}
