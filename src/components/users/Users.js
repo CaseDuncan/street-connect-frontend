@@ -3,9 +3,6 @@ import Spinner from '../../common/spinner/Spinner'
 import UsersList from './UsersList'
 import { Link } from 'react-router-dom'
 
-
-
-
 function Users() {
 
     const[users, setUsers] = useState([])
