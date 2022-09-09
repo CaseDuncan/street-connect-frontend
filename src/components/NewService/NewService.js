@@ -1,28 +1,39 @@
 import React,{useState} from 'react'
 // import { useNavigate } from 'react-router-dom';
 
-function NewService({onAddService}) {
+function NewService({handleAddService}) {
     // let navigate = useNavigate()
 
-    const[serviceName, setServiceName] = useState('')
-    const[submit, setSubmit] = useState(false)
+    const[newService, setNewService] = useState({
+        service_name: "",
+    })
+
+    const handleChange = (e) =>{
+        const name = e.target.name
+        const value = e.target.value
+        setNewService({...newService, [name]:value})
+    }
+  
 
     function handleAddService(e){
         e.preventDefault();
-        fetch("http://localhost:9292/services", {
+        const addService ={
+            service_name: newService.service_name
+        }
+        fetch("https://street-connect.herokuapp.com/services", {
             method: "POST",
             headers:{
                 "Content-Type":"application/json"
             },
-            body: JSON.stringify({
-                serviceName: serviceName
-            })            
+            body: JSON.stringify(addService)            
         })
         .then((res)=>res.json())
-        .then((newService)=>{
-            onAddService(newService)
-            setServiceName("")
-            setSubmit(true)
+        .then((handleAddService)=>{
+          
+            setNewService({
+                service_name: "",
+            })
+            
         })
         
 
@@ -43,11 +54,11 @@ function NewService({onAddService}) {
                     <input type="text" id="service_name" 
                     className="form-control"
                     name='service_name'
-                    onChange={(e)=>setServiceName(e.target.value)}
+                    onChange={handleChange}
                     />
 
                 </div>
-            <input type="submit" value={submit? "Submitting": "Submit"} className="form-control btn btn-success"/>
+                <button type='submit' className='form-control btn btn-success'>Create</button>
                 </div>
                 </form>
                 </div>

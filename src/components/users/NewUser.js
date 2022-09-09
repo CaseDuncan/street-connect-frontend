@@ -1,11 +1,14 @@
 import React, {useState} from 'react'
 
 
-function NewUser({addUser}) {
+function NewUser({addUsers}) {
 const[newUser, setNewUser] = useState({
-    name: "",
+    username: "",
     email: "",
-    password: ""
+    password: "",
+    user_type: "",
+    image_url: "",
+    phone: "",
 })
 
 const handleChange = (e) => {
@@ -17,11 +20,15 @@ const handleChange = (e) => {
 function handleSubmit(e){
   e.preventDefault();
   const addNewUser = {
-    name: newUser.name,
+    username: newUser.username,
     email: newUser.email,
     password: newUser.password,
+    user_type: newUser.user_type,
+    image_url: newUser.image_url,
+    phone: newUser.phone,
+
   };
-  fetch("http://localhost:9292/users",{
+  fetch("https://street-connect.herokuapp.com/users",{
     method: "POST",
     headers:{
       "Content-Type": "application/json",
@@ -29,17 +36,22 @@ function handleSubmit(e){
     body: JSON.stringify(addNewUser),
   })
   .then((response)=>response.json())
-  .then(addUser)
-  setNewUser({
-          name: "",
-          email: "",
-          password: "",
-        });
-}
+  .then((addUsers)=>{
+    setNewUser({
+      username: "",
+      email: "",
+      password: "",
+      user_type: "",
+      image_url: "",
+      phone: "",
+    })
+  })
+  
+  .catch((error)=>{
+    console.log(error.message)
+  })
+      }
 
-     
-
-      
 
   return (
     <div className='container'>
@@ -48,10 +60,10 @@ function handleSubmit(e){
             <div className='col-md-4'>
                 <h5 className='text-center display-4'>Sign Up</h5>
             <form method='POST' onSubmit={handleSubmit}>
-                <label htmlFor='name'>Name</label>
+                <label htmlFor='username'>Name</label>
                 <input type='text'
-                name='name'
-                value={newUser.name}
+                name='username'
+                value={newUser.username}
                 onChange={handleChange}
                 className='form-control'
                 required
@@ -65,9 +77,33 @@ function handleSubmit(e){
                 className='form-control'
                 required
                 />
+
+                <label htmlFor='phone'>Phone</label>
+                <input type='text'
+                name='phone'
+                value={newUser.phone}
+                onChange={handleChange}
+                className='form-control'
+                required
+                />
+
+                <label htmlFor='phone'>Image url</label>
+                <input type='text'
+                name='image_url'
+                value={newUser.image_url}
+                onChange={handleChange}
+                className='form-control'
+                required
+                />
+                <label htmlFor='user_type'>User Type</label>
+                <select name='user_type'className="form-select form-select-lg mb-3 mt-3" aria-label=".form-select-lg example">                
+                  <option value={newUser.user_type} onChange={handleChange}>Customer</option>
+                </select>
+               
                 
                 <label htmlFor='password'>Password</label>
-                <input type='text'
+                <input 
+                type='password'
                 name='password'
                 value={newUser.password}
                 onChange={handleChange}

@@ -12,7 +12,7 @@ function Users() {
     const[loading, setLoading] = useState(true)
 
     useEffect(()=>{
-        fetch("http://localhost:9292/users")
+        fetch("https://street-connect.herokuapp.com/users")
         .then((res)=>res.json())
         .then((data)=>{
             setLoading(false)
@@ -28,8 +28,9 @@ function Users() {
     const userList= users.map((user)=>(
         <UsersList
         key={user.id}
-        name={user.username}
+        username={user.username}
         email={user.email}
+        image={user.image_url}
 
         />
     ))

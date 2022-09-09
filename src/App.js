@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import ServicesContainer from './components/services/ServicesContainer'
 import NewService from './components/NewService/NewService';
 import NavBar from './components/navbar/NavBar';
-// import PageNotFound from './common/Notfound/PageNotFound';
+import PageNotFound from './common/Notfound/PageNotFound';
 import Home from './pages/Home';
 import Users from './components/users/Users';
 import Contact from './pages/Contact';
@@ -17,7 +17,7 @@ function App({handleAddService}) {
       <NavBar/>
       <NewUser/>
       
-      {/* <PageNotFound/> */}
+      
       <Routes>
         <Route path="/" exact element={<Home/>}/>
       <Route path="/services" element={<ServicesContainer/>}>
@@ -26,6 +26,7 @@ function App({handleAddService}) {
       <Route path={"/contact"} element={<Contact/>}/>
       <Route path={"/about"} element={<About/>}/>
       <Route path='/users' element={<Users/>}/>
+      <Route path='*' element={<PageNotFound/>}/>
       </Routes>
       <Footer/>
     </div>

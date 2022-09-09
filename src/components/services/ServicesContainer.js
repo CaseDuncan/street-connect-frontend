@@ -9,7 +9,7 @@ function ServicesContainer() {
     const[loading, setLoading]= useState(true)
 
     useEffect(()=>{
-        fetch("http://localhost:9292/services")
+        fetch("https://street-connect.herokuapp.com/services")
         .then((response)=>response.json())
         .then((data)=>{
           setLoading(false)

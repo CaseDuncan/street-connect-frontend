@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './users.css'
 
-function UsersList({username, email, phone, service}) {
+function UsersList({username, email, phone, service, image}) {
   return (
     <div className='col-md-4'>
       <div className='card shadow mt-3'>
