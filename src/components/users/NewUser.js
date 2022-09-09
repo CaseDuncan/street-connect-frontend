@@ -36,17 +36,15 @@ function handleSubmit(e){
     body: JSON.stringify(addNewUser),
   })
   .then((response)=>response.json())
-  .then((addUsers)=>{
-    setNewUser({
-      username: "",
-      email: "",
-      password: "",
-      user_type: "",
-      image_url: "",
-      phone: "",
-    })
-  })
-  
+  .then((addUsers)=>{})
+  setNewUser({
+          username: "",
+          email: "",
+          password: "",
+          user_type: "",
+          image_url: "",
+          phone: "",
+        })
   .catch((error)=>{
     console.log(error.message)
   })
