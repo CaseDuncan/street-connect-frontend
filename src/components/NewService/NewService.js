@@ -1,8 +1,7 @@
 import React,{useState} from 'react'
-// import { useNavigate } from 'react-router-dom';
 
-function NewService({handleAddService}) {
-    // let navigate = useNavigate()
+function NewService({AddService}) {
+  
 
     const[newService, setNewService] = useState({
         service_name: "",
@@ -28,7 +27,7 @@ function NewService({handleAddService}) {
             body: JSON.stringify(addService)            
         })
         .then((res)=>res.json())
-        .then((handleAddService)=>{
+        .then((AddService)=>{
           
             setNewService({
                 service_name: "",

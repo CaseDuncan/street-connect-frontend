@@ -18,7 +18,7 @@ function ServicesContainer() {
     }, [])
 
 
-    function handleAddService(newService){
+    function AddService(newService){
       setServices([...services, newService])
     }
 
@@ -27,7 +27,7 @@ function ServicesContainer() {
       key={service.id}
       service_name={service.service_name}
       created_at={service.created_at}
-      // onAddService={handleAddService}
+      onAddService={AddService}
       />
     ))
 

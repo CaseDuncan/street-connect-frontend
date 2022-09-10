@@ -1,7 +1,7 @@
 import React,{useEffect, useState} from 'react'
 import Spinner from '../../common/spinner/Spinner'
 import UsersList from './UsersList'
-import { Link } from 'react-router-dom'
+
 
 function Users() {
 
@@ -28,6 +28,7 @@ function Users() {
         username={user.username}
         email={user.email}
         image={user.image_url}
+        onAddUsers={addUsers}
 
         />
     ))
