@@ -1,6 +1,9 @@
 import React,{useState} from 'react'
+import { useNavigate } from 'react-router-dom'
 
 function NewService({AddService}) {
+
+    let navigate = useNavigate()
   
 
     const[newService, setNewService] = useState({
@@ -34,6 +37,7 @@ function NewService({AddService}) {
             })
             
         })
+        navigate('/services',{replace: true})
         
 
     }

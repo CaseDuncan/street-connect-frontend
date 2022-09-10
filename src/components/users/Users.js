@@ -10,6 +10,7 @@ function Users() {
 
     useEffect(()=>{
         fetch("https://street-connect.herokuapp.com/users")
+        // fetch("https://localhost:9292/users")
         .then((res)=>res.json())
         .then((data)=>{
             setLoading(false)
@@ -18,7 +19,7 @@ function Users() {
     }, [])
 
     function addUsers(newUser) {
-      const allUsers = [newUser, ...users];
+      const allUsers = [...users, newUser];
       setUsers(allUsers);
     }
 

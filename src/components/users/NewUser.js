@@ -1,12 +1,12 @@
 import React, {useState} from 'react'
+import { useNavigate } from 'react-router-dom'
 
 
 function NewUser({addUsers}) {
+  let navigate = useNavigate()
 const[newUser, setNewUser] = useState({
     username: "",
     email: "",
-    password: "",
-    user_type: "",
     image_url: "",
     phone: "",
 })
@@ -22,9 +22,6 @@ function handleSubmit(e){
   const addNewUser = {
     username: newUser.username,
     email: newUser.email,
-    password: newUser.password,
-    user_type: newUser.user_type,
-    image_url: newUser.image_url,
     phone: newUser.phone,
 
   };
@@ -36,17 +33,20 @@ function handleSubmit(e){
     body: JSON.stringify(addNewUser),
   })
   .then((response)=>response.json())
-  .then((addUsers)=>{})
-  setNewUser({
-          username: "",
-          email: "",
-          password: "",
-          user_type: "",
-          image_url: "",
-          phone: "",
-        })
+  .then((addUsers)=>{
+    setNewUser({
+      username: "",
+      email: "",
+      password: "",
+      image_url: "",
+      phone: "",
+    })
+  })
+  navigate('/users', {replace:true})
+  
+
   .catch((error)=>{
-    console.log(error.message)
+    console.log(error.response.data)
   })
       }
 
@@ -93,22 +93,6 @@ function handleSubmit(e){
                 className='form-control'
                 required
                 />
-                <label htmlFor='user_type'>User Type</label>
-                <select name='user_type'className="form-select form-select-lg mb-3 mt-3" aria-label=".form-select-lg example">                
-                  <option value={newUser.user_type} onChange={handleChange}>Customer</option>
-                </select>
-               
-                
-                <label htmlFor='password'>Password</label>
-                <input 
-                type='password'
-                name='password'
-                value={newUser.password}
-                onChange={handleChange}
-                className='form-control'
-                required
-                />
-                
                 
                 <button type='submit' className='form-control btn btn-outline-dark my-3'>submit</button>
             </form>
