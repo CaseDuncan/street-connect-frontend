@@ -39,21 +39,12 @@ function Users() {
       });
       setUsers(updatedUser);
     }
-      function deleteUser(id) {
-    fetch(`https://street-connect.herokuapp.com/users/${id}`, {
-      method: "DELETE",
-      headers: { "Content-Type": "application/json" },
-    })
-      .then((response) => response.json())
-      .then((data) => handleDeleteUser(data));
-  }
 
     const userList= users.map((user)=>(
         <UsersList
         key={user.id}
         user={user}
         onAddUsers={addUsers}
-        handleUserDelete={deleteUser}
         onUpdateUser={handleUpdateUser}
         
         />

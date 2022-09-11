@@ -15,20 +15,15 @@ function App({handleAddService}) {
   return (
     <div className="App">
       <NavBar/>
-      <NewUser/>
-      
-      
       <Routes>
         <Route path="/" exact element={<Home/>}/>
-      <Route path="/services" element={<ServicesContainer/>}>
-      <Route path="/services/new-service" element={<NewService onAddService={handleAddService}/>}/>
-      </Route>
-      <Route path={"/contact"} element={<Contact/>}/>
-      <Route path={"/about"} element={<About/>}/>
+      <Route path="/services" element={<ServicesContainer/>}/>
+      <Route path="/services/add_service" element={<NewService onAddService={handleAddService}/>}/>
       <Route path='/users' element={<Users/>}/>
+      <Route path='/users/add_user' element={<NewUser/>}/>
       <Route path='*' element={<PageNotFound/>}/>
       </Routes>
-      <Footer/>
+      {/* <Footer/> */}
     </div>
   );
 }

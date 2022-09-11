@@ -22,7 +22,6 @@ function UsersList({user, handleDeleteUser}) {
     <div className='col-md-4'>
       <div className='card shadow mt-3'>
         <div className='card-body'>
-          <img src={user.image} alt="user-image"/>
           <h3 className='card-title'>{user.username}</h3>
           <div className='user-info'>
             <p className='card-text'>Email: {user.email}</p>

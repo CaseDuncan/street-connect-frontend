@@ -19,16 +19,22 @@ function NavBar() {
           <Link className="nav-link" to="/users">Providers</Link>
         </li>
         <li className="nav-item">
+          <Link className="nav-link" to="/users/add_user">Add Provider</Link>
+        </li>
+        <li className="nav-item">
           <Link className="nav-link" to="/services">Services</Link>
         </li>
-        
         <li className="nav-item">
+          <Link className="nav-link" to="/services/add_service">Add Service</Link>
+        </li>
+        
+        {/* <li className="nav-item">
           <Link className="nav-link" to="/about">About</Link>
         </li>
 
         <li className="nav-item">
           <Link className="nav-link" to="/contact">Contact</Link>
-        </li>
+        </li> */}
       </ul>
       <form className="d-flex">
         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
