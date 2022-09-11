@@ -1,50 +1,23 @@
-import React, {useState} from 'react'
-import { useNavigate } from 'react-router-dom'
+import React, { useState } from "react";
 
+function EditMessage({ id, username, onUpdateUser }) {
+  const [messageBody, setMessageBody] = useState(body);
 
-function NewUser({addUsers}) {
-  let navigate = useNavigate()
-const[newUser, setNewUser] = useState({
-    username: "",
-    email: "",
-    image_url: "",
-    phone: "",
-})
+  function handleFormSubmit(e) {
+    e.preventDefault();
 
-const handleChange = (e) => {
-  const name = e.target.name;
-  const value = e.target.value;
-  setNewUser({ ...newUser, [name]: value });
-};
-        
-function handleSubmit(e){
-  e.preventDefault();
-  const addNewUser = {
-    username: newUser.username,
-    email: newUser.email,
-    phone: newUser.phone,
-
-  };
-  fetch("https://street-connect.herokuapp.com/users",{
-    method: "POST",
-    headers:{
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(addNewUser),
-  })
-  .then((response)=>response.json())
-  .then((addUsers)=>{
-    setNewUser({
-      username: "",
-      email: "",
-      password: "",
-      image_url: "",
-      phone: "",
+    fetch(`https://street-connect.herokuapp.com/users/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        body: messageBody,
+      }),
     })
-  })
-  navigate('/users', {replace:true})
+      .then((r) => r.json())
+      .then((updatedUser) => onUpdateUser(updatedUser));
   }
-
 
   return (
     <div className='container'>
@@ -52,7 +25,7 @@ function handleSubmit(e){
             <div className='col-md-4'></div>
             <div className='col-md-4'>
                 <h5 className='text-center display-4'>New User</h5>
-            <form method='POST' onSubmit={handleSubmit}>
+            <form method='POST' onSubmit={handleFormSubmit}>
                 <label htmlFor='username'>Name</label>
                 <input type='text'
                 name='username'
@@ -96,7 +69,7 @@ function handleSubmit(e){
 
 
     </div>
-  )
+  );
 }
 
-export default NewUser
+export default EditMessage;

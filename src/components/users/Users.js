@@ -23,14 +23,39 @@ function Users() {
       setUsers(allUsers);
     }
 
+
+    function handleDeleteUser(id) {
+      const updatedusers = users.filter((user) => user.id !== id);
+      setUsers(updatedusers);
+    }
+  
+    function handleUpdateUser(updatedUserObj) {
+      const updatedUser = users.map((user) => {
+        if (user.id === updatedUserObj.id) {
+          return updatedUserObj;
+        } else {
+          return user;
+        }
+      });
+      setUsers(updatedUser);
+    }
+      function deleteUser(id) {
+    fetch(`https://street-connect.herokuapp.com/users/${id}`, {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+    })
+      .then((response) => response.json())
+      .then((data) => handleDeleteUser(data));
+  }
+
     const userList= users.map((user)=>(
         <UsersList
         key={user.id}
-        username={user.username}
-        email={user.email}
-        image={user.image_url}
+        user={user}
         onAddUsers={addUsers}
-
+        handleUserDelete={deleteUser}
+        onUpdateUser={handleUpdateUser}
+        
         />
     ))
   return (

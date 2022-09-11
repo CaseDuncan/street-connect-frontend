@@ -1,19 +1,38 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import './users.css'
+import { useNavigate } from 'react-router-dom'
 
-function UsersList({username, email, phone, service, image}) {
+function UsersList({user, handleDeleteUser}) {
+  let navigate = useNavigate()
+
+  function deleteUser(id) {
+    fetch(`https://street-connect.herokuapp.com/users/${id}`, {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data))
+      .catch((err)=>{
+        console.log(err.message)
+      })
+      navigate('/', {replace: true})
+  }
+
   return (
     <div className='col-md-4'>
       <div className='card shadow mt-3'>
         <div className='card-body'>
-          <h3 className='card-title'>{username}</h3>
+          <img src={user.image} alt="user-image"/>
+          <h3 className='card-title'>{user.username}</h3>
           <div className='user-info'>
-          <p className='card-text'>Service: CCTV Installation</p>
-            <p className='card-text'>Email: {email}</p>
-            <p className='card-text'>0729078909</p>
+            <p className='card-text'>Email: {user.email}</p>
+            <p className='card-text'>Phone:{user.phone}</p>
           </div>
-          <Link to="/">view</Link>
+          <div className='actions'>
+            <button className='btn btn-success'>Edit</button>
+            <button className='btn btn-danger' onClick={()=>deleteUser(user.id)}>Delete</button>
+          </div>
+         
         </div>
       </div>
     </div>
