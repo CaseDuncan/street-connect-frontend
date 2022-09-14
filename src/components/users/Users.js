@@ -46,6 +46,7 @@ function Users() {
         user={user}
         onAddUsers={addUsers}
         onUpdateUser={handleUpdateUser}
+        onDeleteUser={handleDeleteUser}
         
         />
     ))

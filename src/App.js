@@ -6,10 +6,8 @@ import NavBar from './components/navbar/NavBar';
 import PageNotFound from './common/Notfound/PageNotFound';
 import Home from './pages/Home';
 import Users from './components/users/Users';
-import Contact from './pages/Contact';
-import About from './pages/About';
 import NewUser from './components/users/NewUser';
-import Footer from './common/footer/Footer';
+
 
 function App({handleAddService}) {
   return (
