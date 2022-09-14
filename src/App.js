@@ -23,7 +23,7 @@ function App({handleAddService}) {
       <Route path='/users/add_user' element={<NewUser/>}/>
       <Route path='*' element={<PageNotFound/>}/>
       </Routes>
-      {/* <Footer/> */}
+     
     </div>
   );
 }
