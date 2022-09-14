@@ -1,7 +1,16 @@
-# Author : Oluoch Duncan 31st July 2022.
+# Author : Oluoch Duncan 9th September 2022.
+
 ## Project Description
-The project allows people living in a area to get in touch with guys who do 
+
+The project allows people living in a area to get in touch with guys who do item repairs and installations
+
+# Screenshots
+
+![Screenshot (1928)](https://user-images.githubusercontent.com/90550934/190206371-a96f2762-47d0-4d47-936c-d22db4040107.png)
+![Screenshot (1927)](https://user-images.githubusercontent.com/90550934/190206381-511ed54f-bdb6-4e0f-ba23-6579a695b2bd.png)
+
 # SetUp Instruction
+
 ## Requirements
 
 [HTML](lang Url) Text editor eg Visual Studio Code
@@ -18,7 +27,6 @@ Open the folder location on terminal and use the following command to run app: n
 Technologies Used:
 
 ## ReactJs CSS Bootstrap V5 JavaScript
-
 
 ### `npm start`
 
@@ -42,6 +50,9 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+#Link to Backend
+https://github.com/CaseDuncan/street-connect-backend
 
 # Contact Information
 
