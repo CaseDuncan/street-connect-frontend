@@ -1,10 +1,24 @@
-# Getting Started with Create React App
+# Author : Oluoch Duncan 31st July 2022.
+## Project Description
+The project allows people living in a area to get in touch with guys who do 
+# SetUp Instruction
+## Requirements
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[HTML](lang Url) Text editor eg Visual Studio Code
+Getting Files
 
-## Available Scripts
+# Fork the repo
 
-In the project directory, you can run:
+Create a new branch in your terminal (git checkout -b improve-feature) Install the prerequisites :
+
+    npm install
+    npm install bootstrap Make appropriate changes in file(s) Run the server to see the changes using: npm start Add the changes and commit them (git commit -am "Improve App") Push to the branch (git push origin improve-app) Create a Pull request
+
+Open the folder location on terminal and use the following command to run app: npm start
+Technologies Used:
+
+## ReactJs CSS Bootstrap V5 JavaScript
+
 
 ### `npm start`
 
@@ -29,4 +43,10 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+# Contact Information
 
+## Email : oluochdancun19@gmail.com
+
+# License
+
+MIT License Copyright (c) 2022 Oluoch Duncan
